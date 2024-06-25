@@ -1,0 +1,11 @@
+SELECT 
+    order_date,
+    SUM(total_amount) AS total_sales,
+    SUM(total_items) AS total_items_sold,
+    SUM(total_discount) AS total_discounts_given
+FROM 
+    order_facts
+GROUP BY 
+    order_date
+ORDER BY 
+    order_date;
