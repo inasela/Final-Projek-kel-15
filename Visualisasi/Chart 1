@@ -1,0 +1,13 @@
+SELECT 
+    dd.date, 
+    SUM(of.total_amount) AS total_sales
+FROM 
+    sales s
+JOIN 
+    date_dimension dd ON s.date_id = dd.date_id
+JOIN 
+    order_facts of ON s.order_id = of.order_id
+GROUP BY 
+    dd.date
+ORDER BY 
+    dd.date;
